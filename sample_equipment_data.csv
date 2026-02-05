@@ -1,0 +1,31 @@
+Equipment Name,Type,Flowrate,Pressure,Temperature
+Reactor-A1,Reactor,150.5,8.2,320.0
+Heat Exchanger-B2,Heat Exchanger,200.3,5.5,280.5
+Pump-C3,Pump,95.0,12.0,85.0
+Distillation Column-D4,Column,180.2,3.8,180.0
+Compressor-E5,Compressor,120.0,15.0,120.0
+Reactor-A2,Reactor,165.8,8.5,315.5
+Heat Exchanger-B3,Heat Exchanger,210.0,5.2,275.0
+Pump-C4,Pump,88.5,11.5,90.0
+Distillation Column-D5,Column,175.0,4.0,185.0
+Compressor-E6,Compressor,125.5,14.5,115.0
+Reactor-A3,Reactor,155.0,8.0,325.0
+Heat Exchanger-B4,Heat Exchanger,195.5,5.8,285.0
+Pump-C5,Pump,92.0,12.5,88.0
+Distillation Column-D6,Column,185.0,3.5,175.0
+Compressor-E7,Compressor,118.0,15.5,125.0
+Reactor-A4,Reactor,160.0,8.3,318.0
+Heat Exchanger-B5,Heat Exchanger,205.0,5.4,282.0
+Pump-C6,Pump,90.0,12.2,87.0
+Distillation Column-D7,Column,178.5,3.9,182.0
+Compressor-E8,Compressor,122.5,14.8,118.0
+Mixer-F1,Mixer,110.0,6.0,95.0
+Separator-G1,Separator,140.0,7.5,150.0
+Valve-H1,Valve,75.0,10.0,70.0
+Tank-I1,Tank,50.0,2.0,45.0
+Furnace-J1,Furnace,300.0,1.5,850.0
+Mixer-F2,Mixer,115.0,6.2,98.0
+Separator-G2,Separator,145.0,7.2,155.0
+Valve-H2,Valve,78.0,9.8,72.0
+Tank-I2,Tank,52.0,2.1,48.0
+Furnace-J2,Furnace,310.0,1.6,860.0

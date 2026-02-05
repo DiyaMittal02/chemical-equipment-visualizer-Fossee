@@ -1,0 +1,64 @@
+.data-table-section {
+    padding: 28px;
+}
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.table-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.table-count {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+    font-weight: 500;
+}
+
+.equipment-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.equipment-type-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.numeric-value {
+    font-family: 'Courier New', monospace;
+    color: var(--accent-light);
+    font-weight: 600;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .table-container {
+        font-size: 14px;
+    }
+
+    thead th {
+        font-size: 12px;
+        padding: 12px 8px;
+    }
+
+    td {
+        padding: 10px 8px;
+    }
+}

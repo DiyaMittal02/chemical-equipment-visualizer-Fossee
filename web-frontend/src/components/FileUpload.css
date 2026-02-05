@@ -1,0 +1,157 @@
+.file-upload-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.upload-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.upload-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.upload-description {
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.drop-zone {
+    border: 3px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    background: rgba(255, 255, 255, 0.02);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drop-zone:hover {
+    border-color: var(--accent-color);
+    background: rgba(0, 191, 165, 0.05);
+    transform: scale(1.01);
+}
+
+.drop-zone.drag-active {
+    border-color: var(--accent-light);
+    background: rgba(0, 191, 165, 0.1);
+    transform: scale(1.02);
+    box-shadow: var(--glow);
+}
+
+.drop-zone.has-file {
+    border-color: var(--success);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.drop-zone-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.upload-icon {
+    font-size: 64px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.drop-text {
+    font-size: 18px;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.drop-text strong {
+    color: var(--accent-color);
+}
+
+.drop-subtext {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.file-icon {
+    font-size: 48px;
+}
+
+.file-details {
+    flex: 1;
+    text-align: left;
+}
+
+.file-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 4px 0;
+    word-break: break-all;
+}
+
+.file-size {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.remove-file {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(239, 68, 68, 0.2);
+    color: var(--error);
+    font-size: 18px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-file:hover {
+    background: var(--error);
+    color: white;
+    transform: scale(1.1);
+}
+
+.sample-info {
+    margin-top: 24px;
+    padding: 16px;
+    background: rgba(0, 191, 165, 0.05);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+}
+
+.sample-info p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.sample-info code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: var(--accent-light);
+    font-family: 'Courier New', monospace;
+}
