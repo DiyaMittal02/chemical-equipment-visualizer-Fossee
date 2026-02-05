@@ -4,6 +4,7 @@ django-cors-headers==4.0.0
 pandas
 reportlab
 Pillow
-PyQt5
-matplotlib
-requests
+gunicorn
+psycopg2-binary
+whitenoise
+dj-database-url
