@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { loginUser, registerUser } from '../api';
-import './Auth.css';
 
 function Auth({ onLoginSuccess }) {
     const [isLogin, setIsLogin] = useState(true);
@@ -29,19 +28,20 @@ function Auth({ onLoginSuccess }) {
                 setPassword('');
             }
         } catch (err) {
-            setError(err.response?.data?.error || 'An error occurred. Please try again.');
+            setError(err.response?.data?.error || err.message || 'An error occurred. Please try again.');
         } finally {
             setLoading(false);
         }
     };
 
     return (
-        <div className="auth-card card">
-            <div className="auth-header">
-                <h2 className="auth-title">
-                    {isLogin ? '🔐 Sign In' : '✨ Create Account'}
+        <div className="bg-gray-800/60 backdrop-blur-lg rounded-2xl border border-gray-700 p-8 shadow-2xl">
+            <div className="text-center mb-8">
+                <div className="text-5xl mb-4">{isLogin ? '🔐' : '✨'}</div>
+                <h2 className="text-3xl font-bold text-white mb-2">
+                    {isLogin ? 'Sign In' : 'Create Account'}
                 </h2>
-                <p className="auth-description">
+                <p className="text-gray-400">
                     {isLogin
                         ? 'Welcome back! Sign in to access your equipment data.'
                         : 'Join us to start analyzing your equipment parameters.'}
@@ -49,26 +49,28 @@ function Auth({ onLoginSuccess }) {
             </div>
 
             {error && (
-                <div className="alert alert-error">
-                    <span>⚠️</span>
+                <div className="mb-4 p-4 bg-red-500/10 border border-red-500/50 rounded-lg flex items-center gap-3 text-red-400">
+                    <span className="text-xl">⚠️</span>
                     <span>{error}</span>
                 </div>
             )}
 
             {success && (
-                <div className="alert alert-success">
-                    <span>✅</span>
+                <div className="mb-4 p-4 bg-green-500/10 border border-green-500/50 rounded-lg flex items-center gap-3 text-green-400">
+                    <span className="text-xl">✅</span>
                     <span>{success}</span>
                 </div>
             )}
 
-            <form onSubmit={handleSubmit} className="auth-form">
-                <div className="form-group">
-                    <label htmlFor="username">Username</label>
+            <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                    <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-2">
+                        Username
+                    </label>
                     <input
                         id="username"
                         type="text"
-                        className="input"
+                        className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         placeholder="Enter your username"
@@ -77,12 +79,14 @@ function Auth({ onLoginSuccess }) {
                 </div>
 
                 {!isLogin && (
-                    <div className="form-group">
-                        <label htmlFor="email">Email</label>
+                    <div>
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                            Email (Optional)
+                        </label>
                         <input
                             id="email"
                             type="email"
-                            className="input"
+                            className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Enter your email"
@@ -90,12 +94,14 @@ function Auth({ onLoginSuccess }) {
                     </div>
                 )}
 
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                <div>
+                    <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
+                        Password
+                    </label>
                     <input
                         id="password"
                         type="password"
-                        className="input"
+                        className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder="Enter your password"
@@ -105,13 +111,12 @@ function Auth({ onLoginSuccess }) {
 
                 <button
                     type="submit"
-                    className="btn btn-accent"
+                    className="w-full py-3 px-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                     disabled={loading}
-                    style={{ width: '100%' }}
                 >
                     {loading ? (
                         <>
-                            <div className="spinner" style={{ width: '20px', height: '20px' }}></div>
+                            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                             Processing...
                         </>
                     ) : (
@@ -120,8 +125,8 @@ function Auth({ onLoginSuccess }) {
                 </button>
             </form>
 
-            <div className="auth-toggle">
-                <p>
+            <div className="mt-6 text-center">
+                <p className="text-gray-400">
                     {isLogin ? "Don't have an account? " : "Already have an account? "}
                     <button
                         type="button"
@@ -130,7 +135,7 @@ function Auth({ onLoginSuccess }) {
                             setError('');
                             setSuccess('');
                         }}
-                        className="toggle-link"
+                        className="text-blue-400 hover:text-blue-300 font-semibold transition-colors"
                     >
                         {isLogin ? 'Sign Up' : 'Sign In'}
                     </button>

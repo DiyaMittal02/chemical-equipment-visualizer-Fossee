@@ -1,64 +1,33 @@
-.data-table-section {
-    padding: 28px;
+/* Global data table styles */
+.data-table-container {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-top: 2rem;
 }
 
-.table-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-    gap: 12px;
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
 }
 
-.table-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0;
-}
-
-.table-count {
-    font-size: 14px;
+.data-table th {
+    background: var(--surface-hover);
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
     color: var(--text-muted);
-    margin: 0;
-    font-weight: 500;
+    border-bottom: 1px solid var(--border);
 }
 
-.equipment-name {
-    font-weight: 600;
-    color: var(--text-primary);
+.data-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
 }
 
-.equipment-type-badge {
-    display: inline-block;
-    padding: 4px 12px;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
-    color: white;
-    border-radius: 12px;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: capitalize;
-}
-
-.numeric-value {
-    font-family: 'Courier New', monospace;
-    color: var(--accent-light);
-    font-weight: 600;
-    text-align: right;
-}
-
-@media (max-width: 768px) {
-    .table-container {
-        font-size: 14px;
-    }
-
-    thead th {
-        font-size: 12px;
-        padding: 12px 8px;
-    }
-
-    td {
-        padding: 10px 8px;
-    }
+.data-table tr:hover {
+    background: rgba(255, 255, 255, 0.02);
 }

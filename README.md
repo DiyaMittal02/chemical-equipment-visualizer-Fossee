@@ -1,450 +1,216 @@
-# Chemical Equipment Parameter Visualizer
-### Hybrid Web + Desktop Application
+# 🧪 Chemical Equipment Visualizer
 
-A comprehensive full-stack application for analyzing and visualizing chemical equipment parameters. This project demonstrates modern software architecture with a unified Django backend serving both React web and PyQt5 desktop frontends.
+A full-stack hybrid application for analyzing and visualizing chemical equipment parameters with support for both web and desktop interfaces.
 
-![Project Banner](https://via.placeholder.com/1200x300/1a237e/00bfa5?text=Chemical+Equipment+Visualizer)
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![Django](https://img.shields.io/badge/Django-4.2-green.svg)
+![React](https://img.shields.io/badge/React-18.0-61DAFB.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-## 🎯 Project Overview
+## 🌟 Features
 
-This hybrid application allows users to upload CSV files containing chemical equipment data, perform analytics, and visualize results through interactive charts and tables. The system features:
+- **📊 Data Analysis**: Upload CSV files containing equipment parameters for instant statistical analysis
+- **📈 Visualizations**: Interactive charts showing equipment distribution, correlations, and trends
+- **📄 PDF Reports**: Generate comprehensive PDF reports with statistics and visualizations
+- **🔄 History Tracking**: Manage up to 10 most recent dataset uploads
+- **🌐 Dual Interface**: 
+  - Modern web application with Tailwind CSS
+  - Native desktop application with PyQt5
+- **🔐 Authentication**: Secure user authentication and data management
+- **⚡ Real-time Processing**: Instant data processing and visualization
 
-- **Unified Django Backend**: RESTful API serving both frontends
-- **React Web Frontend**: Modern, responsive web interface with Chart.js
-- **PyQt5 Desktop App**: Native desktop application with Matplotlib
-- **Data Analytics**: Pandas-powered CSV processing and statistics
-- **PDF Reporting**: Automated report generation
-- **Authentication**: Secure user management
-- **History Management**: Store and access last 5 uploaded datasets
-
-## 🏗️ Technology Stack
-
-| Layer | Technology | Purpose |
-|-------|-----------|---------|
-| **Backend** | Django + Django REST Framework | Common API backend |
-| **Web Frontend** | React.js + Chart.js | Interactive web visualization |
-| **Desktop Frontend** | PyQt5 + Matplotlib | Native desktop application |
-| **Data Processing** | Pandas | CSV parsing & analytics |
-| **Database** | SQLite | Dataset storage |
-| **Reporting** | ReportLab | PDF generation |
-| **Version Control** | Git & GitHub | Code management |
-
-## ✨ Key Features
-
-### 1. CSV Upload
-- ✅ Drag-and-drop file upload (Web & Desktop)
-- ✅ File validation (format & size)
-- ✅ Real-time processing feedback
-- ✅ Progress indicators
-
-### 2. Data Analytics
-- ✅ Automatic statistics calculation
-  - Total equipment count
-  - Average flowrate, pressure, temperature
-  - Equipment type distribution
-- ✅ Data validation and error handling
-- ✅ Comprehensive data summaries
-
-### 3. Interactive Visualizations
-- ✅ **Web (Chart.js)**:
-  - Pie chart for equipment distribution
-  - Bar chart for average parameters
-  - Line chart for temperature trends
-- ✅ **Desktop (Matplotlib)**:
-  - Professional publication-quality charts
-  - Customizable visualizations
-  - Export capabilities
-
-### 4. Data Management
-- ✅ Detailed data tables with sorting
-- ✅ Equipment records display
-- ✅ History of last 5 uploads
-- ✅ Dataset comparison
-
-### 5. PDF Reporting
-- ✅ Automated report generation
-- ✅ Professional formatting
-- ✅ Summary statistics included
-- ✅ Equipment distribution analysis
-
-### 6. Authentication
-- ✅ User registration & login
-- ✅ Session management
-- ✅ Secure password handling
-- ✅ User-specific data access
-
-## 📁 Project Structure
+## 🏗️ Architecture
 
 ```
 FOOSEE/
-├── backend/                    # Django REST API
-│   ├── backend/
-│   │   ├── __init__.py
-│   │   ├── settings.py         # Django configuration
-│   │   ├── urls.py             # URL routing
-│   │   ├── wsgi.py
-│   │   └── asgi.py
-│   ├── api/
-│   │   ├── __init__.py
-│   │   ├── models.py           # Data models
-│   │   ├── serializers.py      # DRF serializers
-│   │   ├── views.py            # API endpoints
-│   │   ├── urls.py             # API routing
-│   │   ├── admin.py            # Admin interface
-│   │   └── utils.py            # PDF generation
-│   ├── manage.py
-│   └── requirements.txt
-│
-├── web-frontend/               # React Application
+├── backend/              # Django REST Framework API
+│   ├── api/             # API endpoints and models
+│   ├── backend/         # Django settings and configuration
+│   └── manage.py
+├── web-frontend/        # React web application
 │   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── Auth.js
-│   │   │   ├── FileUpload.js
-│   │   │   ├── Summary.js
-│   │   │   ├── Charts.js
-│   │   │   ├── DataTable.js
-│   │   │   └── History.js
-│   │   ├── App.js
-│   │   ├── App.css
-│   │   ├── index.js
-│   │   ├── index.css
-│   │   └── api.js              # API client
-│   └── package.json
-│
-├── desktop-app/                # PyQt5 Application
-│   ├── ui/
-│   │   ├── __init__.py
-│   │   ├── main_window.py
-│   │   ├── auth_widget.py
-│   │   ├── upload_widget.py
-│   │   ├── visualization_widget.py
-│   │   ├── history_widget.py
-│   │   └── styles.py
-│   ├── main.py                 # Entry point
-│   ├── api_client.py           # API communication
-│   └── requirements.txt
-│
-├── sample_equipment_data.csv   # Sample dataset
-├── README.md                   # This file
-├── .gitignore
-└── LICENSE
+│   └── src/
+│       ├── components/  # React components
+│       └── api.js      # API client
+├── desktop-app/         # PyQt5 desktop application
+│   ├── ui/             # UI components
+│   ├── api_client.py   # Backend communication
+│   └── main.py
+└── sample_equipment_data.csv  # Sample data file
 ```
 
-## 🚀 Setup Instructions
+## 🚀 Quick Start
 
 ### Prerequisites
 
-Ensure you have the following installed:
-- Python 3.8 or higher
-- Node.js 14 or higher
-- npm or yarn
-- Git
+- **Python 3.8+**
+- **Node.js 14+** and npm
+- **Git**
 
-### 1. Backend Setup (Django)
+### Installation
 
+1. **Clone the repository**
 ```bash
-# Navigate to backend directory
-cd backend
-
-# Create virtual environment
-python -m venv venv
-
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run migrations
-python manage.py makemigrations
-python manage.py migrate
-
-# Create superuser (optional, for admin access)
-python manage.py createsuperuser
-
-# Run development server
-python manage.py runserver
+git clone https://github.com/YOUR_USERNAME/FOOSEE.git
+cd FOOSEE
 ```
 
-The backend will be available at `http://localhost:8000`
-
-### 2. Web Frontend Setup (React)
-
-Open a new terminal:
-
+2. **Backend Setup**
 ```bash
-# Navigate to web frontend directory
+cd backend
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# macOS/Linux
+source venv/bin/activate
+
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser  # Create admin account
+```
+
+3. **Frontend Setup**
+```bash
 cd web-frontend
-
-# Install dependencies
 npm install
+```
 
-# Start development server
+4. **Desktop App Setup** (Optional)
+```bash
+# From project root with backend venv activated
+pip install PyQt5 matplotlib requests
+```
+
+### Running the Application
+
+**Option 1: Use the Launch Script (Windows)**
+```bash
+# From project root
+LAUNCH_APP.bat
+```
+
+**Option 2: Manual Start**
+
+**Terminal 1 - Backend:**
+```bash
+cd backend
+venv\Scripts\activate
+python manage.py runserver 127.0.0.1:8000
+```
+
+**Terminal 2 - Web Frontend:**
+```bash
+cd web-frontend
 npm start
 ```
 
-The web app will open automatically at `http://localhost:3000`
-
-### 3. Desktop App Setup (PyQt5)
-
-Open a new terminal:
-
+**Terminal 3 - Desktop App (Optional):**
 ```bash
-# Navigate to desktop app directory
 cd desktop-app
-
-# Create virtual environment (if not using backend's venv)
-python -m venv venv
-
-# Activate virtual environment
-# On Windows:
-venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run desktop application
-python main.py
+..\backend\venv\Scripts\python main.py
 ```
 
-### Important Notes
+### Access
 
-- **Run Order**: Start the Django backend FIRST, then launch either frontend
-- **Port Configuration**: Backend runs on port 8000, React on port 3000
-- **API Base URL**: Update if deploying to a different server
-- **Sample Data**: Use `sample_equipment_data.csv` for testing
+- **Web App**: http://localhost:3000
+- **Backend API**: http://127.0.0.1:8000/api/
+- **Admin Panel**: http://127.0.0.1:8000/admin/
 
-## 📊 Sample Data Format
+**Default Test Credentials:**
+- Username: `admin`
+- Password: `admin`
 
-Your CSV file should have the following columns:
+## 📂 Data Format
 
-```csv
-Equipment Name,Type,Flowrate,Pressure,Temperature
-Reactor-A1,Reactor,150.5,8.2,320.0
-Heat Exchanger-B2,Heat Exchanger,200.3,5.5,280.5
-Pump-C3,Pump,95.0,12.0,85.0
-...
-```
+Upload CSV files with the following columns:
 
-**Column Descriptions:**
-- **Equipment Name**: Unique identifier for the equipment
-- **Type**: Category (Reactor, Pump, Heat Exchanger, etc.)
-- **Flowrate**: Flow rate in m³/h
-- **Pressure**: Pressure in bar
-- **Temperature**: Temperature in °C
+| Equipment Name | Type | Flowrate | Pressure | Temperature |
+|----------------|------|----------|----------|-------------|
+| Pump-01 | Pump | 150.5 | 5.2 | 85.0 |
+| HX-101 | Heat Exchanger | 200.0 | 3.8 | 120.5 |
 
-## 🎮 Usage Guide
+See `sample_equipment_data.csv` for a complete example.
 
-### Web Application
+## 🛠️ Technology Stack
 
-1. **Login/Register**: Create an account or sign in
-2. **Upload Data**: 
-   - Click "Upload Data" tab
-   - Select or drag-and-drop CSV file
-   - Click "Upload & Analyze"
-3. **View Analysis**: Automatically switches to analysis view
-4. **Download Report**: Click "Download PDF Report"
-5. **View History**: Access "History" tab for past uploads
+### Backend
+- **Django 4.2.7** - Web framework
+- **Django REST Framework** - API framework
+- **Django CORS Headers** - Cross-origin resource sharing
+- **Pandas** - Data processing
+- **ReportLab** - PDF generation
+- **SQLite** - Database (default)
 
-### Desktop Application
+### Frontend (Web)
+- **React 18** - UI library
+- **Tailwind CSS** - Styling framework
+- **Axios** - HTTP client
+- **Chart.js** - Data visualization
 
-1. **Launch Application**: Run `python main.py`
-2. **Authenticate**: Login with your credentials
-3. **Upload**: Use "Upload Data" tab to select files
-4. **Visualize**: View charts and statistics
-5. **Export**: Download PDF reports to your computer
+### Frontend (Desktop)
+- **PyQt5** - GUI framework
+- **Matplotlib** - Charting library
+- **Requests** - HTTP client
 
-## 🔧 API Endpoints
+## 📊 API Endpoints
 
-### Authentication
-- `POST /api/auth/register/` - Register new user
-- `POST /api/auth/login/` - User login
-- `POST /api/auth/logout/` - User logout
-- `GET /api/auth/user/` - Get current user
-
-### Data Management
-- `POST /api/upload/` - Upload CSV file
-- `GET /api/datasets/` - List all datasets
-- `GET /api/datasets/{id}/` - Get specific dataset
-- `GET /api/datasets/{id}/download_pdf/` - Download PDF report
-- `GET /api/history/` - Get last 5 datasets
-- `GET /api/summary/{id}/` - Get dataset summary
-
-## 🎨 Design Features
-
-### Web Application
-- **Dark Theme**: Modern, eye-friendly color scheme
-- **Glassmorphism Effects**: Premium frosted glass aesthetics
-- **Smooth Animations**: Micro-interactions for better UX
-- **Responsive Design**: Mobile, tablet, and desktop support
-- **Gradient Accents**: Vibrant color gradients
-
-### Desktop Application
-- **Native Look & Feel**: Qt-styled interface
-- **Consistent Theming**: Matches web design
-- **High DPI Support**: Sharp on retina displays
-- **Custom Widgets**: Tailored components
-- **Professional Charts**: Publication-quality matplotlib visualizations
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/auth/register/` | POST | User registration |
+| `/api/auth/login/` | POST | User login |
+| `/api/auth/logout/` | POST | User logout |
+| `/api/auth/user/` | GET | Current user info |
+| `/api/data/upload/` | POST | Upload CSV file |
+| `/api/data/datasets/` | GET | List datasets |
+| `/api/data/datasets/{id}/` | GET | Dataset details |
+| `/api/data/history/` | GET | Recent uploads |
+| `/api/data/download-pdf/{id}/` | GET | Download PDF report |
 
 ## 🧪 Testing
 
-### Test the Application
+### Verification Steps
 
-1. **Use Sample Data**: Start with `sample_equipment_data.csv`
-2. **Create Test User**: Register with test credentials
-3. **Upload Workflow**: 
-   - Upload sample file
-   - Verify statistics
-   - Check visualizations
-   - Download PDF
-4. **History**: Upload multiple files to test history feature
+1. **Upload Test**: Upload `sample_equipment_data.csv`
+2. **Summary Validation**: Check stats match the CSV data
+3. **Visualization Check**: Verify charts display correctly
+4. **PDF Download**: Generate and review PDF report
+5. **History Verification**: Check upload appears in history
 
-### Expected Results
+See `VERIFICATION_GUIDE.md` for detailed testing instructions.
 
-- Total equipment: 30
-- Equipment types: Reactor, Pump, Heat Exchanger, Column, Compressor, Mixer, Separator, Valve, Tank, Furnace
-- All averages should be calculated correctly
-- Charts should display data distribution
-- PDF should generate without errors
+## 🔒 Security Notes
 
-## 🚢 Deployment
+**⚠️ Development Mode Only**
 
-### Backend (Django)
+This configuration is for **development/demonstration** purposes:
+- CSRF protection is disabled on auth endpoints
+- CORS is configured for localhost origins
+- Debug mode is enabled
+- SQLite database is used
 
-**Option 1: Heroku**
-```bash
-# Install Heroku CLI
-# Login to Heroku
-heroku login
+**For Production:**
+1. Set `DEBUG = False` in `settings.py`
+2. Configure proper `ALLOWED_HOSTS`
+3. Use PostgreSQL or MySQL
+4. Enable CSRF protection
+5. Configure production CORS settings
+6. Use environment variables for secrets
+7. Set up HTTPS
 
-# Create app
-heroku create your-app-name
+## 📝 License
 
-# Add buildpack
-heroku buildpacks:set heroku/python
-
-# Push code
-git push heroku main
-
-# Run migrations
-heroku run python manage.py migrate
-```
-
-**Option 2: Railway/Render**
-- Connect GitHub repository
-- Set build command: `pip install -r requirements.txt`
-- Set start command: `python manage.py runserver 0.0.0.0:$PORT`
-
-### Web Frontend (React)
-
-**Option 1: Vercel**
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-cd web-frontend
-vercel
-```
-
-**Option 2: Netlify**
-```bash
-# Build project
-npm run build
-
-# Deploy build folder via Netlify CLI or drag-and-drop
-```
-
-### Desktop App
-
-**Distribution Options:**
-1. **PyInstaller**: Create standalone executable
-   ```bash
-   pip install pyinstaller
-   pyinstaller --onefile --windowed main.py
-   ```
-
-2. **Inno Setup** (Windows): Create installer
-3. **DMG** (Mac): Create distributable package
-
-## 📝 Configuration
-
-### Environment Variables
-
-Create `.env` files for production:
-
-**Backend (.env)**
-```env
-SECRET_KEY=your-secret-key-here
-DEBUG=False
-ALLOWED_HOSTS=your-domain.com
-DATABASE_URL=your-database-url
-CORS_ALLOWED_ORIGINS=https://your-frontend-domain.com
-```
-
-**Web Frontend (.env)**
-```env
-REACT_APP_API_URL=https://your-backend-domain.com/api
-```
-
-**Desktop App (config.py)**
-```python
-API_BASE_URL = "https://your-backend-domain.com/api"
-```
+This project is licensed under the MIT License.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 👥 Authors
-
-- **Your Name** - *Initial work* - [GitHub Profile](https://github.com/yourusername)
-
-## 🙏 Acknowledgments
-
-- Django and Django REST Framework teams
-- React and Chart.js communities
-- Qt and PyQt5 developers
-- Pandas and Matplotlib contributors
-- Open source community
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 📧 Contact
 
-For questions or support:
-- Email: your.email@example.com
-- GitHub Issues: [Create an issue](https://github.com/yourusername/FOOSEE/issues)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
-
-## 📸 Screenshots
-
-### Web Application
-![Web Dashboard](https://via.placeholder.com/800x450/1a237e/00bfa5?text=Web+Dashboard)
-
-### Desktop Application
-![Desktop App](https://via.placeholder.com/800x450/1a237e/00bfa5?text=Desktop+Application)
-
-### PDF Report
-![PDF Report](https://via.placeholder.com/800x450/1a237e/00bfa5?text=PDF+Report)
+For issues or questions, please open an issue on GitHub.
 
 ---
 
-**Built with ❤️ for the FOOSEE Internship Screening Task**
-
-*Last Updated: February 2026*
+**Built with ❤️ using Django, React, and PyQt5**

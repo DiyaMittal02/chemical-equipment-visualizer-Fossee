@@ -2,6 +2,7 @@ from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.conf import settings
@@ -41,6 +42,7 @@ class EquipmentDatasetViewSet(viewsets.ModelViewSet):
         return response
 
 
+@csrf_exempt
 @api_view(['POST'])
 def upload_csv(request):
     """Handle CSV file upload and processing"""
@@ -150,7 +152,14 @@ def get_history(request):
     return Response(serializer.data)
 
 
+from django.views.decorators.csrf import csrf_exempt
+
+from rest_framework.decorators import api_view, action, permission_classes # Update imports
+# ... (keep existing lines)
+
+@csrf_exempt
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def register_user(request):
     """Register a new user"""
     
@@ -175,7 +184,9 @@ def register_user(request):
     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+@csrf_exempt
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def login_user(request):
     """Login user"""
     
@@ -201,6 +212,7 @@ def login_user(request):
         )
 
 
+@csrf_exempt
 @api_view(['POST'])
 def logout_user(request):
     """Logout user"""
