@@ -204,11 +204,21 @@ class MainWindow(QMainWindow):
     
     def on_dataset_selected(self, dataset):
         """Handle dataset selection from history"""
-        self.current_dataset = dataset
-        self.view_tab_btn.setEnabled(True)
-        self.viz_widget.set_dataset(dataset)
-        self.switch_tab(1)
-        self.statusBar.showMessage(f"Loaded dataset: {dataset['filename']}")
+        try:
+            # Fetch full dataset details including records
+            full_dataset = self.api_client.get_dataset(dataset['id'])
+            
+            self.current_dataset = full_dataset
+            self.view_tab_btn.setEnabled(True)
+            self.viz_widget.set_dataset(full_dataset)
+            self.switch_tab(1)
+            self.statusBar.showMessage(f"Loaded dataset: {dataset['filename']}")
+        except Exception as e:
+            QMessageBox.critical(
+                self,
+                "Error",
+                f"Failed to load dataset details: {str(e)}"
+            )
     
     def logout(self):
         """Logout current user"""

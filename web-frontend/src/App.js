@@ -6,7 +6,7 @@ import Charts from './components/Charts';
 import Summary from './components/Summary';
 import History from './components/History';
 import Auth from './components/Auth';
-import { getCurrentUser, logoutUser } from './api';
+import { getCurrentUser, logoutUser, getDataset } from './api';
 
 function App() {
     const [currentDataset, setCurrentDataset] = useState(null);
@@ -36,9 +36,19 @@ function App() {
         setActiveTab('view');
     };
 
-    const handleDatasetSelect = (dataset) => {
-        setCurrentDataset(dataset);
-        setActiveTab('view');
+    const handleDatasetSelect = async (dataset) => {
+        try {
+            // Use summary dataset initially or show loading
+            // Fetch full details
+            const fullDataset = await getDataset(dataset.id);
+            setCurrentDataset(fullDataset);
+            setActiveTab('view');
+        } catch (err) {
+            console.error("Failed to load full dataset:", err);
+            // Fallback to summary if fetch fails, though graph might break
+            setCurrentDataset(dataset);
+            setActiveTab('view');
+        }
     };
 
     const handleLogout = async () => {
@@ -109,8 +119,8 @@ function App() {
                         <nav className="flex gap-2 mb-8 bg-gray-800/50 backdrop-blur-md p-2 rounded-xl border border-gray-700 w-fit">
                             <button
                                 className={`px-6 py-3 rounded-lg font-semibold transition-all ${activeTab === 'upload'
-                                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
-                                        : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
+                                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                                     }`}
                                 onClick={() => setActiveTab('upload')}
                             >
@@ -118,8 +128,8 @@ function App() {
                             </button>
                             <button
                                 className={`px-6 py-3 rounded-lg font-semibold transition-all ${activeTab === 'view'
-                                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
-                                        : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
+                                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                                     } ${!currentDataset ? 'opacity-50 cursor-not-allowed' : ''}`}
                                 onClick={() => setActiveTab('view')}
                                 disabled={!currentDataset}
@@ -128,8 +138,8 @@ function App() {
                             </button>
                             <button
                                 className={`px-6 py-3 rounded-lg font-semibold transition-all ${activeTab === 'history'
-                                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
-                                        : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
+                                    ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
+                                    : 'text-gray-400 hover:text-white hover:bg-gray-700/50'
                                     }`}
                                 onClick={() => setActiveTab('history')}
                             >
